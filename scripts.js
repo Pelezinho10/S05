@@ -33,12 +33,21 @@ function reservarArmario() {
   
   // Depois localizamos o armário emprestado na lista de armarios e mudamos o status do armário.
   let armarioEmprestado = armarios.find(armario => armario.id === armarioSorteado.id).status = false;
+
+  //Resgistrar data e hora
+  let dataReser = new Date();
+  armarioEmprestado.dataReser = dataReser;
+
+  //Calcular a data e hora para entregar a chave 
+  let dataEntre = new Date(dataReser);
+  dataEntre.setHours(dataEntre.getHours() + 24);
+  armarioEmprestado.dataEntre = dataEntre;
   
   // Finalmente, mudamos a pendencia do usuário para verdadeira.
   usuario.pendencia = true;
   
   // Impmimimos uma mensagem de reserva para o usuário.
-  document.getElementById("resultado").innerText = `Olá, ${usuario.nome}! O armário ${armarioSorteado.id} foi reservado com sucesso!`;
+  document.getElementById("resultado").innerText = `Olá, ${usuario.nome}! O armário ${armarioSorteado.id} foi reservado com sucesso!\nData e hora de entrega: ${dataEntre.toLocaleString()}`;
 
   console.log(usuario);
   console.log(armarios);
