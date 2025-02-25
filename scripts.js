@@ -36,24 +36,22 @@ function reservarArmario() {
 
   // Registrar data e hora de reserva.
   let dataReser = new Date();
-  armarioEmprestado.dataReser = dataReser;
   let diaReserva = dataReser.toLocaleDateString();
+  armarioEmprestado.dataReser = dataReser;
   armarioEmprestado.diaReserva = diaReserva;
 
   // Calcular a data e hora para entrega da chave (24 horas depois).
   let dataEntre = new Date(dataReser);
   dataEntre.setHours(dataEntre.getHours() + 24);
+  let diaEntrega = dataEntre.toLocaleDateString();
   armarioEmprestado.dataEntre = dataEntre;
+  armarioEmprestado.diaEntrega = diaEntrega;
   
   // Atualizar a pendência do usuário para verdadeira.
   usuario.pendencia = true;
   
   // Exibir mensagem de reserva para o usuário.
-  document.getElementById("resultado").innerText = `Olá, ${usuario.nome}! O armário ${armarioSorteado.id} foi reservado com sucesso!\nData da reserva: ${diaReserva}\nData e hora de entrega: ${dataEntre.toLocaleString()}`;
+  document.getElementById("resultado").innerText = `Olá, ${usuario.nome}! O armário ${armarioSorteado.id} foi reservado com sucesso!\nData da reserva: ${diaReserva}\nData para devolução da chave: ${diaEntrega}`;
   
-  // Faltou você registrar a data de entrega e data de reserva do armário nas chaves do objeto.
-  // Você poderá entregar atrasado até a data de laboratório da próxima semana.
-
-  console.log(usuario);
   console.log(armarios);
 }
