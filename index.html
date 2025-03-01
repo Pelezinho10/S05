@@ -3,83 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard App Inatel</title>
+    <title>App Inatel</title>
     <link rel="stylesheet" href="styles.css">
-    <script>
-        function reservarArmario() {
-            var tipo = document.getElementById("tipoArmario").value;
-            document.getElementById("resultado").innerText = "Você reservou um armário do tipo: " + tipo;
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-    </script>
+        .container {
+            width: 100%;
+            max-width: 414px;
+            background: white;
+            padding: 16px;
+            margin: 8px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        header {
+            padding: 24px;
+            background: #000000;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            font-size: 24px;
+            border-radius: 8px;
+        }
+        .mensagens, .noticias, .aulas {
+            padding: 16px;
+            margin-top: 8px;
+            border-radius: 8px;
+        }
+        .mensagens {
+            background: #3399ff;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+        }
+        .mensagens h2 {
+            font-size: 26px;
+            margin-bottom: 8px;
+        }
+        .aulas {
+            background: #b0b0b0;
+            text-align: center;
+        }
+        .disciplina {
+            padding: 12px;
+            background: #f0f0f0;
+            border: 1px solid #a0a0a0;
+            color: black;
+            margin: 8px 0;
+            border-radius: 8px;
+        }
+        .noticias {
+            background: #cc0000;
+            color: white;
+            text-align: center;
+            font-size: 18px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h2>Reserva de Armário</h2>
-        <label for="tipoArmario">Selecione o tipo de armário:</label>
-        <select id="tipoArmario">
-            <option value="padrao">Padrão</option>
-            <option value="duplo">Duplo</option>
-        </select>
-        <button onclick="reservarArmario()">Reservar</button>
-        <p id="resultado"></p>
-    </div>
-    
-    <div class="container">
-        <header class="header">Header</header>
-        <section class="mensagens">Mensagens</section>
+        <header>Icon   Logo     Icon</header>
+        
+        <section class="mensagens">
+            <h2>Olá, Raphael</h2>
+            <p>Você possui um armário reservado com entrega para hoje...</p>
+            <p>Você possui uma pendência no financeiro...</p>
+        </section>
+        
         <main class="aulas">
-            <div class="disciplina">Disciplina 1</div>
-            <div class="disciplina">Disciplina 2</div>
-            <div class="disciplina">Disciplina 3</div>
-            <div class="disciplina">Disciplina 4</div>
+            <article class="disciplina">Disciplina 1 - Sala e Horário</article>
+            <article class="disciplina">Disciplina 2 - Sala e Horário</article>
+            <article class="disciplina">Disciplina 3 - Sala e Horário</article>
         </main>
-        <section class="noticias">Notícias</section>
+        
+        <section class="noticias">CARD DE NOTÍCIAS - SUBTÍTULO</section>
     </div>
 </body>
 </html>
-
-/* styles.css */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f5f5f5;
-}
-.container {
-    width: 90%;
-    max-width: 414px;
-    margin: auto;
-    background: white;
-    padding: 16px;
-}
-.header {
-    padding: 16px;
-    margin-bottom: 8px;
-    background: red;
-    color: white;
-    text-align: center;
-}
-.mensagens {
-    padding: 16px;
-    margin-bottom: 8px;
-    background: pink;
-    color: black;
-}
-.aulas {
-    padding: 16px;
-    margin-bottom: 8px;
-    background: darkblue;
-    color: white;
-}
-.noticias {
-    padding: 16px;
-    margin-bottom: 8px;
-    background: black;
-    color: white;
-}
-.disciplina {
-    padding: 12px;
-    margin-bottom: 8px;
-    background: white;
-    border: 1px solid gray;
-}
