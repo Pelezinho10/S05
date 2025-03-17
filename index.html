@@ -15,7 +15,7 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            transition: background 0.3s, color 0.3s;
+            background: #000000
         }
         .container {
             width: 100%;
@@ -23,11 +23,7 @@
             padding: 12px;
             border-radius: 8px;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-            transition: background 0.3s;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            background: black; 
         }
         header {
             padding: 10px;
@@ -35,14 +31,15 @@
             font-weight: bold;
             font-size: 16px;
             border-radius: 8px;
-            transition: background 0.3s;
+            background: #225FD2; 
         }
         .mensagens, .noticias, .aulas {
             padding: 18px;
             margin-top: 8px;
             border-radius: 8px;
-            transition: background 0.3s;
             width: 100%;
+            background: #225FD2; 
+            color: white;
         }
         .mensagens {
             text-align: center;
@@ -58,15 +55,15 @@
         }
         .aulas {
             text-align: center;
-            display: none; /* Ocultando a seção de disciplinas */
+            display: none; 
         }
         .disciplina {
             padding: 14px;
-            border: 1px solid;
+            border: 1px solid white; 
             margin: 6px 0;
             border-radius: 8px;
-            transition: background 0.3s;
-            font-size: 14px;
+            background: black;
+            color: white; 
         }
         .noticias {
             text-align: center;
@@ -77,13 +74,12 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            transition: background 0.3s;
         }
 
         h3 {
             font-family: "Arimo", sans-serif;
             font-optical-sizing: auto;
-            font-weight: 500 ;
+            font-weight: 500;
             font-style: normal;
             font-size: 18px;
             color: white;
@@ -107,7 +103,7 @@
         .carousel-container {
             position: relative;
             overflow: hidden;
-            background-color: white;
+            background-color: #333; 
             border-radius: 10px;
             margin: 20px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -129,16 +125,15 @@
         }
 
         .info {
-            padding: 20px; 
+            padding: 10px; 
         }
-
         .icon {
             font-size: 15px;
             margin-left: 5px;
             margin-right: 2px;
             width: 18px;
             display: inline-block;
-            vertical-align: middle;
+         vertical-align: middle
         }
 
         button {
@@ -149,104 +144,14 @@
             color: white;
             border: none;
             padding: 10px;
-            cursor: pointer;
+            cursor: pointer; 
             font-size: 10px;
         }
         #prevBtn {  
-          left: 10px; 
+            left: 10px; 
         }
         #nextBtn {  
-          right: 10px;
-          
-        }
-
-        /* Tema Inatel */
-        body.light-mode {
-            background: #ffffff;
-            color: black;
-            --cor-text: black; 
-        }
-        .light-mode .container {
-            background: white;
-        }
-        .light-mode header,
-        .light-mode .mensagens,
-        .light-mode .noticias,
-        .light-mode .aulas {
-            background: #225FD2;
-            color: black;
-        }
-        .light-mode .disciplina {
-            background: #FFFFFF;
-            color: black;
-            border-color: black;
-        }
-        .light-mode .carousel-container {
-            background-color: white;
-        }
-
-        /* Tema Dark */
-        body.dark-mode {
-            background: #000000;
-            color: white;
-            --cor-text: white; 
-        }
-        .dark-mode .container {
-            background: black;
-        }
-        .dark-mode header,
-        .dark-mode .mensagens,
-        .dark-mode .noticias,
-        .dark-mode .aulas {
-            background: #225FD2;
-            color: white;
-        }
-        .dark-mode .disciplina {
-            background: #000000;
-            color: white;
-            border-color: white;
-        }
-        .dark-mode .carousel-container {
-            background-color: #333;
-        }
-
-        /* Menu de temas */
-        .theme-menu {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-        .theme-menu-button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-            border-radius: 8px;
-            background: #225FD2;
-            color: white;
-        }
-        .theme-options {
-            display: none;
-            position: absolute;
-            top: 40px;
-            right: 0;
-            background: #225FD2;
-            border-radius: 8px;
-            padding: 8px;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .theme-options button {
-            display: block;
-            width: 100%;
-            padding: 8px;
-            margin: 4px 0;
-            font-size: 14px;
-            cursor: pointer;
-            border: none;
-            border-radius: 4px;
-            background: white;
-            color: black;
+            right: 10px;
         }
 
         /* Ajustes no SVG */
@@ -257,14 +162,7 @@
         }
     </style>
 </head>
-<body class="dark-mode">
-    <div class="theme-menu">
-        <button class="theme-menu-button" onclick="toggleThemeMenu()">Temas</button>
-        <div class="theme-options" id="themeOptions">
-            <button onclick="setTheme('light')">Tema Inatel</button>
-            <button onclick="setTheme('dark')">Tema Dark</button>
-        </div>
-    </div>
+<body>
     <div class="container">
         <header> 
             <svg class="svg_logo_inatel" xmlns="http://www.w3.org/2000/svg" viewBox="100 150 390 116">
@@ -284,59 +182,36 @@
             <article class="disciplina">Disciplina 3 - Sala e Horário</article>
         </main>
         
-       <section class="noticias">
-    <div class="carousel-container">
-        <div class="carousel">
-            <div class="card">
-                <img src="https://via.placeholder.com/400x200" alt="Imagem 1">
-                <div class="info">
-                    <h3>Título do Card 1</h3>
-                    <p>Descrição do card 1.</p>
+        <section class="noticias">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/400x200" alt="Imagem 1">
+                        <div class="info">
+                            <h3>Título do Card 1</h3>
+                            <p>Descrição do card 1.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://via.placeholder.com/400x200" alt="Imagem 2">
+                        <div class="info">
+                            <h3>Título do Card 2</h3>
+                            <p>Descrição do card 2.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://via.placeholder.com/400x200" alt="Imagem 3">
+                        <div class="info">
+                            <h3>Título do Card 3</h3>
+                            <p>Descrição do card 3.</p>
+                        </div>
+                    </div>
                 </div>
+                <button id="prevBtn">❮</button>
+                <button id="nextBtn">❯</button>
             </div>
-            <div class="card">
-                <img src="https://via.placeholder.com/400x200" alt="Imagem 2">
-                <div class="info">
-                    <h3>Título do Card 2</h3>
-                    <p>Descrição do card 2.</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://via.placeholder.com/400x200" alt="Imagem 3">
-                <div class="info">
-                    <h3>Título do Card 3</h3>
-                    <p>Descrição do card 3.</p>
-                </div>
-            </div>
-        </div>
-        <button id="prevBtn">❮</button>
-        <button id="nextBtn">❯</button>
+        </section>
     </div>
-</section>
-    </div>
-
-    <script>
-        function toggleThemeMenu() {
-            const themeOptions = document.getElementById("themeOptions");
-            themeOptions.style.display = themeOptions.style.display === "block" ? "none" : "block";
-        }
-
-        function setTheme(mode) {
-            const body = document.body;
-            if (mode === 'light') {
-                body.classList.remove("dark-mode");
-                body.classList.add("light-mode");
-            } else {
-                body.classList.remove("light-mode");
-                body.classList.add("dark-mode");
-            }
-            localStorage.setItem("theme", mode);
-        }
-
-        window.onload = function () {
-            const savedTheme = localStorage.getItem("theme") || "dark";
-            setTheme(savedTheme);
-        };
     </script>
 </body>
 </html>
