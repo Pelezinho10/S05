@@ -60,7 +60,7 @@ const eventos = [
 // Função para carregar os eventos no carrossel
 function carregarEventos() {
     const carousel = document.getElementById("carousel");
-    carousel.innerHTML = ""; 
+    carousel.innerHTML = ""; // Limpa o conteúdo existente
 
     eventos.forEach((evento) => {
         const card = document.createElement("div");
@@ -127,11 +127,39 @@ function reservarArmario() {
     console.log(armarios);
 }
 
-// Carregar os eventos ao carregar a página
+// Função para alternar o menu de temas
+function toggleThemeMenu() {
+    const themeOptions = document.getElementById("themeOptions");
+    themeOptions.style.display = themeOptions.style.display === "block" ? "none" : "block";
+}
+
+// Função para definir o tema
+function setTheme(mode) {
+    const body = document.body;
+    if (mode === 'light') {
+        body.classList.remove("dark-mode");
+        body.classList.add("light-mode");
+    } else {
+        body.classList.remove("light-mode");
+        body.classList.add("dark-mode");
+    }
+    localStorage.setItem("theme", mode);
+}
+
+// Fechar o menu de temas ao clicar fora
+document.addEventListener("click", function(event) {
+    const themeMenu = document.querySelector(".theme-menu");
+    const themeOptions = document.getElementById("themeOptions");
+    if (!themeMenu.contains(event.target)) {
+        themeOptions.style.display = "none";
+    }
+});
+
+// Carregar os eventos e o tema ao carregar a página
 window.onload = function () {
     carregarEventos(); // Carrega os eventos no carrossel
     const savedTheme = localStorage.getItem("theme") || "dark";
-    setTheme(savedTheme);
+    setTheme(savedTheme); // Aplica o tema salvo
 };
 
 // Script para o carrossel
