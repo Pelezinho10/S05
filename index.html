@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inatel Acadêmico</title>
+    <!-- Adicionando a fonte Arimo do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -52,6 +54,7 @@
         }
         .aulas {
             text-align: center;
+            display: none; /* Oculta a seção de disciplinas */
         }
         .disciplina {
             padding: 14px;
@@ -66,17 +69,115 @@
             font-size: 16px;
             padding: 20px;
             font-weight: bold;
-            height: 80px;
+            height: auto; /* Alterado para se ajustar ao layout vertical */
             display: flex;
+            flex-direction: column; /* Organiza as notícias verticalmente */
             align-items: center;
             justify-content: center;
             transition: background 0.3s;
+        }
+
+        /* Novos estilos adicionados */
+        h3 {
+            font-family: "Arimo", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 700; /* Negrito */
+            font-style: normal;
+            font-size: 16px; /* Tamanho do título reduzido */
+            color: var(--cor-text);
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        p {
+            font-family: "Arimo", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400; /* Normal */
+            font-style: normal;
+            font-size: 12px; /* Tamanho da descrição reduzido */
+            color: var(--cor-text);
+            line-height: 1.5;
+            orphans: 3;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            background-color: white;
+            border-radius: 10px;
+            margin: 20px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%; /* Ajuste para ocupar toda a largura */
+        }
+
+        .carousel {
+            display: flex;
+            flex-direction: column; /* Organiza os cards verticalmente */
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .card {
+            width: 100%; /* Ajuste para ocupar toda a largura */
+            text-align: center;
+            margin-bottom: 15px; /* Espaçamento entre os cards reduzido */
+        }
+
+        .card img {
+            width: 100%;
+            height: 150px; /* Altura da imagem reduzida */
+            object-fit: cover; /* Garantir que a imagem cubra o espaço */
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+        }
+
+        .info {
+            padding: 15px; /* Padding interno reduzido */
+        }
+
+        .info h3 {
+            font-size: 16px; /* Tamanho do título reduzido */
+        }
+
+        .info p {
+            font-size: 12px; /* Tamanho da descrição reduzido */
+        }
+
+        .icon {
+            font-size: 15px;
+            margin-left: 5px;
+            margin-right: 2px;
+            width: 18px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 10px;
+        }
+
+        #prevBtn {
+            left: 10px;
+        }
+
+        #nextBtn {
+            right: 10px;
         }
 
         /* Tema Inatel */
         body.light-mode {
             background: #ffffff;
             color: black;
+            --cor-text: black; 
         }
         .light-mode .container {
             background: white;
@@ -93,11 +194,15 @@
             color: black;
             border-color: black;
         }
+        .light-mode .carousel-container {
+            background-color: white;
+        }
 
         /* Tema Dark */
         body.dark-mode {
             background: #000000;
             color: white;
+            --cor-text: white; 
         }
         .dark-mode .container {
             background: black;
@@ -114,6 +219,9 @@
             color: white;
             border-color: white;
         }
+        .dark-mode .carousel-container {
+            background-color: #333;
+        }
 
         /* Menu de temas */
         .theme-menu {
@@ -121,6 +229,7 @@
             top: 20px;
             right: 20px;
             z-index: 1000;
+            display: none; /* Oculta o menu de temas */
         }
         .theme-menu-button {
             padding: 10px 20px;
@@ -160,6 +269,20 @@
             height: auto;
             fill: white;
         }
+        
+        /* Aspect ratio para dispositivos móveis (9:16) */
+    @media (max-width: 768px) {
+        .container {
+            aspect-ratio: 9 / 16; 
+    }
+    }
+
+    /* Aspect ratio para dispositivos maiores (16:10) */
+    @media (min-width: 769px) {
+        .container {
+            aspect-ratio: 16 / 10; 
+        }
+    }
     </style>
 </head>
 <body class="dark-mode">
@@ -179,8 +302,8 @@
         
         <section class="mensagens">
             <h2>Olá, Raphael</h2>
-            <p>Você possui um armário reservado com entrega para hoje...</p>
-            <p>Você possui uma pendência no financeiro...</p>
+            <p>Você possui um armário reservado com entrega para hoje... </p>
+            <p>Você possui uma pendência no financeiro... </p>
         </section>
         
         <main class="aulas">
@@ -189,7 +312,34 @@
             <article class="disciplina">Disciplina 3 - Sala e Horário</article>
         </main>
         
-        <section class="noticias">CARD DE NOTÍCIAS - SUBTÍTULO</section>
+        <section class="noticias">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <!-- Cards serão inseridos dinamicamente via JS -->
+                    <div class="card">
+                        <img src="https://via.placeholder.com/300x150" alt="Imagem 1">
+                        <div class="info">
+                            <h3>Título do Card 1</h3>
+                            <p>Descrição do card 1.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://via.placeholder.com/300x150" alt="Imagem 2">
+                        <div class="info">
+                            <h3>Título do Card 2</h3>
+                            <p>Descrição do card 2.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://via.placeholder.com/300x150" alt="Imagem 3">
+                        <div class="info">
+                            <h3>Título do Card 3</h3>
+                            <p>Descrição do card 3.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
     <script>
