@@ -60,7 +60,7 @@ const eventos = [
 // Função para carregar os eventos no carrossel
 function carregarEventos() {
     const carousel = document.getElementById("carousel");
-    carousel.innerHTML = ""; // Limpa o conteúdo existente
+    carousel.innerHTML = ""; 
 
     eventos.forEach((evento) => {
         const card = document.createElement("div");
