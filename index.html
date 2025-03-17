@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inatel Acadêmico</title>
-    <!-- Adicionando a fonte Arimo do Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -14,18 +13,21 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            transition: background 0.3s, color 0.3s;
-            height: 100vh;
             justify-content: center;
+            height: 100vh;
+            transition: background 0.3s, color 0.3s;
         }
         .container {
             width: 100%;
             max-width: 320px;
             padding: 12px;
-            margin: 8px;
             border-radius: 8px;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
             transition: background 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
         header {
             padding: 14px;
@@ -40,6 +42,7 @@
             margin-top: 8px;
             border-radius: 8px;
             transition: background 0.3s;
+            width: 100%;
         }
         .mensagens {
             text-align: center;
@@ -54,7 +57,7 @@
         }
         .aulas {
             text-align: center;
-            display: none; /* Oculta a seção de disciplinas */
+            display: none; /* Ocultando a seção de disciplinas */
         }
         .disciplina {
             padding: 14px;
@@ -69,21 +72,19 @@
             font-size: 16px;
             padding: 20px;
             font-weight: bold;
-            height: auto; /* Alterado para se ajustar ao layout vertical */
             display: flex;
-            flex-direction: column; /* Organiza as notícias verticalmente */
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             transition: background 0.3s;
         }
 
-        /* Novos estilos adicionados */
         h3 {
             font-family: "Arimo", sans-serif;
             font-optical-sizing: auto;
-            font-weight: 700; /* Negrito */
+            font-weight: 700;
             font-style: normal;
-            font-size: 16px; /* Tamanho do título reduzido */
+            font-size: 16px;
             color: var(--cor-text);
             padding-left: 5px;
             padding-right: 5px;
@@ -92,9 +93,9 @@
         p {
             font-family: "Arimo", sans-serif;
             font-optical-sizing: auto;
-            font-weight: 400; /* Normal */
+            font-weight: 400;
             font-style: normal;
-            font-size: 12px; /* Tamanho da descrição reduzido */
+            font-size: 12px;
             color: var(--cor-text);
             line-height: 1.5;
             orphans: 3;
@@ -107,41 +108,42 @@
             overflow: hidden;
             background-color: white;
             border-radius: 10px;
-            margin: 20px;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            width: 100%; /* Ajuste para ocupar toda a largura */
         }
 
         .carousel {
             display: flex;
-            flex-direction: column; /* Organiza os cards verticalmente */
+            flex-direction: column;
             transition: transform 0.5s ease-in-out;
         }
 
         .card {
-            width: 100%; /* Ajuste para ocupar toda a largura */
+            width: 100%;
             text-align: center;
-            margin-bottom: 15px; /* Espaçamento entre os cards reduzido */
+            margin-bottom: 15px;
         }
 
         .card img {
             width: 100%;
-            height: 150px; /* Altura da imagem reduzida */
-            object-fit: cover; /* Garantir que a imagem cubra o espaço */
+            height: 150px;
+            object-fit: cover;
             border-top-right-radius: 10px;
             border-top-left-radius: 10px;
         }
 
         .info {
-            padding: 15px; /* Padding interno reduzido */
+            padding: 15px;
         }
 
         .info h3 {
-            font-size: 16px; /* Tamanho do título reduzido */
+            font-size: 16px;
         }
 
         .info p {
-            font-size: 12px; /* Tamanho da descrição reduzido */
+            font-size: 12px;
         }
 
         .icon {
@@ -229,7 +231,7 @@
             top: 20px;
             right: 20px;
             z-index: 1000;
-            display: none; /* Oculta o menu de temas */
+            display: none; /* Ocultando o menu de temas */
         }
         .theme-menu-button {
             padding: 10px 20px;
@@ -269,20 +271,6 @@
             height: auto;
             fill: white;
         }
-        
-        /* Aspect ratio para dispositivos móveis (9:16) */
-    @media (max-width: 768px) {
-        .container {
-            aspect-ratio: 9 / 16; 
-    }
-    }
-
-    /* Aspect ratio para dispositivos maiores (16:10) */
-    @media (min-width: 769px) {
-        .container {
-            aspect-ratio: 16 / 10; 
-        }
-    }
     </style>
 </head>
 <body class="dark-mode">
@@ -315,7 +303,6 @@
         <section class="noticias">
             <div class="carousel-container">
                 <div class="carousel">
-                    <!-- Cards serão inseridos dinamicamente via JS -->
                     <div class="card">
                         <img src="https://via.placeholder.com/300x150" alt="Imagem 1">
                         <div class="info">
@@ -343,13 +330,11 @@
     </div>
 
     <script>
-        // Função para alternar o menu de temas
         function toggleThemeMenu() {
             const themeOptions = document.getElementById("themeOptions");
             themeOptions.style.display = themeOptions.style.display === "block" ? "none" : "block";
         }
 
-        // Função para definir o tema
         function setTheme(mode) {
             const body = document.body;
             if (mode === 'light') {
@@ -359,11 +344,9 @@
                 body.classList.remove("light-mode");
                 body.classList.add("dark-mode");
             }
-            // Salvar o tema no localStorage
             localStorage.setItem("theme", mode);
         }
 
-        // Carregar o tema salvo ao carregar a página
         window.onload = function () {
             const savedTheme = localStorage.getItem("theme") || "dark";
             setTheme(savedTheme);
